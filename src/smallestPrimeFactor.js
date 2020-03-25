@@ -12,14 +12,27 @@
  * @returns {number} The smallest prime factor of num
  */
 function smallestPrimeFactor(num) {
-  // This is your job. :)
+  primeFactors = [3, 5, 7, 11, 13]
+  let smallestPrimeFactorTwo = 2
+
+  if (num % 2 === 0) {
+    return smallestPrimeFactorTwo
+  }
+  else {
+    for (element of primeFactors) {
+      if (num % element === 0) {
+        return element
+      }
+    }
+  }
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for smallestPrimeFactor:');
-
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(smallestPrimeFactor(2) === 2);
+  console.log(smallestPrimeFactor(4) === 2);
+  console.log(smallestPrimeFactor(21) === 3);
+  console.log(smallestPrimeFactor(91) === 7);
 }
 
 module.exports = smallestPrimeFactor;
