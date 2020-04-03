@@ -6,14 +6,20 @@
  * @returns {number} The sum
  */
 function sum(array) {
-  // This is your job. :)
+  let count = 0;
+
+  for(i = 0; i < array.length; i++){
+    count = count + array[i];
+  }
+  return count;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for sum:');
-
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(sum([1, 2, 3])=== 6);
+  console.log(sum([-10, 10, 0])=== 0);
+  console.log(sum([100, 200, 15000])=== 15300);
+  console.log(sum([1234, 3541, -5161324, 56613324]));
 }
 
 module.exports = sum;
