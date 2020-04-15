@@ -11,15 +11,23 @@
  * @returns {object} An object containing the count of each
  *  string in the input array
  */
-function countItems(array) {
-  // This is your job. :)
-}
+function countItems(array,value) {
+    let itemCount = 0;
+    for (let element of array){
+      if (element === value){
+        itemCount ++;
+      }
+    }
+    return itemCount;
+  }
+
 
 if (require.main === module) {
   console.log('Running sanity checks for countItems:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(countItems([1,3,3,4,5], 3)===2);
+  console.log(countItems(['apple', 'apple', 'orange'], 'orange')===1);
+  console.log(countItems(['corn', 'beans', 'beans', 'potato'], 'beans'));
 }
 
 module.exports = countItems;
