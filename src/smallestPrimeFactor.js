@@ -13,45 +13,17 @@ let isPrime = require('./isPrime')
  * @returns {number} The smallest prime factor of num
  */
 function smallestPrimeFactor(num) {
-  let prime = [];
-  let primeFactor = [];
-
-  for (let i =2;i<=num;i++) {
-    if (isPrime(i) === true) {
-      prime.push(i);
-    }
+  if(num % 2 === 0) {
+    return 2;
   }
-  console.log(prime);
-  let primeItself = false;
-  for (let p = 0;p<prime.length;p++) {
-    if (num === prime[p]) {
-      primeItself = true;
-      return num;
+  else {
+  for (let i = 3; i * i <= num; i += 2) {
+    if (num % i == 0)
+        return i;
     }
-  }
-  if (primeItself === false) {
-    for (let j=0;j<=prime.length-1;j++) {
-      let test = num/prime[j];
-        if (Number.isInteger(test)) {
-        primeFactor.push(prime[j]);
-      }
-    }
-    console.log(primeFactor);
-
-    smallest = primeFactor[0];
-
-    for (let k=0;k<primeFactor.length;k++) {
-      if (primeFactor[k] < smallest) {
-      smallest = primeFactor[k];
-      }
-      if (smallest === undefined) {
-      smallest = 1;
-      }
-      }
-    //console.log(smallest);
-    return smallest;
   }
 }
+
 
 
 if (require.main === module) {

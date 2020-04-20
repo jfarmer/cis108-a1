@@ -10,8 +10,7 @@ let sum = require('./sum');
  * @returns {number} The average
  */
 function avg(array) {
-  let arrayTotal = sum(array);
-  return (arrayTotal/array.length);
+  return (sum(array)/array.length);
 }
 
 if (require.main === module) {
