@@ -6,15 +6,26 @@
  * @returns {number} The largest number
  */
 function max(array) {
-  // This is your job. :)
-  // Don't use the built-in Math.max
+  let largest = array[0];
+  for (let i = 0; i < array.length;i++) {
+    if (array[i] > largest) {
+      largest = array[i];
+    }
+  }
+  return largest;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for max:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(max([1, 2, 3]) === 3);
+  console.log(max([0, -100, 50, -200]) === 50);
+  console.log(max([-200, -400, -100, -300]) === -100);
+  console.log(max([0]) === 0);
+  console.log(max([1]) === 1);
+  console.log(max([-1]) === -1);
+  console.log(max([11, 11, 11]) === 11);
+  console.log(max([-22, -11, -22]) === -11);
 }
 
 module.exports = max;

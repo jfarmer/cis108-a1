@@ -12,14 +12,41 @@
  *  string in the input array
  */
 function countItems(array) {
-  // This is your job. :)
+  let obj = {};
+  for (i=0;i<array.length;i++) {
+    if(obj.hasOwnProperty(array[i])) {
+      obj[array[i]] += 1;
+    }
+    else {
+      obj[array[i]] = 1;
+    }
+  }
+
+
+/*
+  for (i=0;i<array.length;i++) {
+    let count = 0;
+    for (j=0;j<array.length;j++) {
+       if(array[i] === array[j]) {
+         count++;
+         obj[array[i]] = count;
+        }
+    }
+  }
+*/
+  return obj;
 }
 
 if (require.main === module) {
-  console.log('Running sanity checks for countItems:');
-
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(countItems(["apple","bacon","cow","apple"]) === { apple: 2, bacon: 1, cow: 1 });
+  console.log(countItems(["apple","bacon","bacon","cow"]) === { 'apple': 1, 'bacon': 2, 'cow': 1 });
+  console.log(countItems(["apple","bacon","cow","cow","cow"]) === { apple: 1, bacon: 1, cow: 3 });
+  console.log(countItems(["apple","apple","apple","apple"]) === { apple: 4 });
+  console.log(countItems(["apple","bacon","cow","apple"]));
+  console.log(countItems(["apple","bacon","bacon","cow"]));
+  console.log(countItems(["apple","bacon","cow","cow","cow"]));
+  console.log(countItems(["apple","apple","apple","apple"]));
 }
+
 
 module.exports = countItems;
