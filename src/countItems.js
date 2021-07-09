@@ -12,12 +12,21 @@
  *  string in the input array
  */
 function countItems(array) {
-  // This is your job. :)
-}
+  let dict = {}
 
+  for (let i = 0; i < array.length; i++) {
+    dict[array[i]]=null;
+}
+for (let i = 0; i < array.length; i++) {
+  dict[array[i]]+=1;
+}
+return dict;
+}
 if (require.main === module) {
   console.log('Running sanity checks for countItems:');
-
+console.log(countItems(['apple', 'goat', 'apple', 'potato']));
+console.log(countItems(['Jalen', 'goat', 'mom', 'mom', 'Jalen']));
+console.log(countItems(['apple', 'dog', 'dog', 'potato', 'cat',]));
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
 }
